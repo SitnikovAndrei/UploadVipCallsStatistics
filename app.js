@@ -27,6 +27,7 @@ let updateStatistics = async () => {
             let callsDTO = callService.convertToDTO(callsFillStatus);
             callDAO.saveAll(callsDTO);
         }
+    }
 };
 
 updateStatistics();
