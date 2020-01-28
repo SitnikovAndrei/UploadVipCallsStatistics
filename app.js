@@ -26,6 +26,8 @@ let updateStatistics = async () => {
             let callsFillStatus = callService.fillStatus(calls, 1001634, 10812798);
             let callsDTO = callService.convertToDTO(callsFillStatus);
             callDAO.saveAll(callsDTO);
+        } else {
+            console.info("CALLS LENGTH: ", calls.length);
         }
     }
 };

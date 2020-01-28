@@ -7,6 +7,7 @@ class CallDAO {
     }
 
     saveAll(calls) {
+        console.info("UPLOAD CALLS DB START");
         let columns = ['datetime','time','direction','caller','call_member_id','dnis','party','duration','contextId','cost','billingContextId','clir','clir_in','callback_button_id','is_answered','is_obscure','is_mass'];
         let sql = 'INSERT IGNORE INTO callhistory_vip(' + columns.join(',') + ') VALUES ?';
 
@@ -16,7 +17,7 @@ class CallDAO {
 
         this.pool.getConnection(function(err, connection) {
             connection.query(sql, [values], function(err, rows) {
-                console.error(err);   
+                console.info("UPLOAD CALLS DB END");   
             });
         });
     }
